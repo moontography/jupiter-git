@@ -42,6 +42,35 @@ web_1  | 2021-03-19 01:20:32.851  WORKER #1  ..started
 web_1  | {"name":"jupiter-git","hostname":"1d24bc879d10","pid":28,"level":30,"msg":"listening on *:8000","time":"2021-03-19T01:20:33.362Z","v":0}
 ```
 
+## Deploy
+
+### Docker & Docker Compose
+
+There's a `Dockerfile` to allow you to build the container and deploy in any infrastructure or orchestration engine you'd like to use. However, for a really simple deployment that isn't supporting tons of users, you can just deploy using the normal docker compose config.
+
+The `docker-compose.dev.yml` config used above maps your local machine's file system build folder to a volume in the container to ease development when making changes. It also starts the app using nodemon to listen for file changes to also make development easier. If you want to deploy `fndr-web` to production/a public URL, it's recommended to use the normal `docker-compose.yml` configuration to ensure the build and execution is entirely inside the container.
+
+```sh
+$ # no need to specify a file w/ `-f` since docker-compose.yml is the default
+$ docker-compose up
+```
+
+### Heroku
+
+Heroku makes it dead simple to deploy web applications from Docker containers.
+
+#### Requirements
+
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
+- A heroku app linked as a git remote in your repo
+
+#### Deploy to Heroku
+
+```sh
+$ heroku container:push web
+$ heroku container:release web
+```
+
 # Tips w/ cryptocurrency
 
 I love FOSS (free and open source software) and for the most part don't want to charge for the software I build. It does however take a good bit of time keeping up with feature requests and bug fixes, so if you have the desire and ability to send me a free coffee, it would be greatly appreciated!

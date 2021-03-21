@@ -63,13 +63,15 @@ export default function GitServer(
                   server: config.jupiter.server,
                   address: jupAddy,
                   passphrase,
-                  feeNQT: 1500,
+                  feeNQT: 2000,
                 })
                 const info = await jupFs.client.getAddressFromPassphrase(
                   passphrase
                 )
                 log.debug(`full auth info`, info)
-                if (jupAddy.toLowerCase() !== info.address.toLowerCase()) {
+                if (
+                  jupAddy.toLowerCase() !== (info.address || '').toLowerCase()
+                ) {
                   throw new Error(
                     `Please make sure your git remote URL has the correct JUP-XXX address (i.e. https://URL/:JUP_ADDRESS/REPO) and you enter the correct passphrase`
                   )
@@ -134,7 +136,7 @@ export default function GitServer(
           server: config.jupiter.server,
           address: this.user.address,
           passphrase: this.user.passphrase,
-          feeNQT: 1500,
+          feeNQT: 2000,
         })
         const fileBuffer: Buffer = await new Promise((resolve, reject) => {
           let data: any[] = []

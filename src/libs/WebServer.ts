@@ -2,6 +2,7 @@ import http from 'http'
 import path from 'path'
 import express, { NextFunction, Request, Response } from 'express'
 import bunyan from 'bunyan'
+import FileHelpers from './FileHelpers'
 import GitServer from './GitServer'
 import config from '../config'
 
@@ -42,9 +43,8 @@ export default function WebServer(/*portToListenOn=config.server.port, shouldLis
           express.static(path.join(config.app.rootDir, '/public'))
         )
 
-        // TODO: fallback route to show docs on using jupiter-git
         app.get('*', function(req: Request, res: Response) {
-          res.sendStatus(200)
+          FileHelpers.expressjs.convertReadmeToHtml(res)
         })
 
         // Express error handling

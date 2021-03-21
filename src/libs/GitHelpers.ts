@@ -138,7 +138,16 @@ export default function GitHelpers(
       if (!repoFile)
         throw new Error(`We did not file the repository for repo ${repoName}.`)
 
-      const readStream: Readable = await jupFs.getFileStream({ name: repoFile })
+      // const readStream: Readable = await jupFs.getFileStream({
+      //   name: repoFile.fileName,
+      // })
+      const fileBuffer = await jupFs.getFile({
+        name: repoFile.fileName,
+      })
+      const readStream = new Readable()
+      readStream._read = () => {} // _read is required but NOOPing it
+      readStream.push(fileBuffer)
+      readStream.push(null)
       readStream.pipe(
         tar.x({
           // onwarn: (code: number | string, message: string, data: any) =>
