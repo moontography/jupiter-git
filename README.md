@@ -3,10 +3,10 @@
 A small git server that persists repositories (as a gzipped tarball) in the [Jupiter blockchain](https://gojupiter.tech). When you run this server, you can begin adding git remotes to your project repositories to this server and push/pull/clone as you would any git remote.
 
 ```sh
-$ git remote add jup http://localhost:8000/JUP-XXX-XXX-XXXX/my-repo
+$ git remote add jup https://git.gojupiter.tech/JUP-XXX-XXX-XXXX/my-repo
 $ git push jup master
 
-Username for 'http://localhost:8000': JUP-XXX-XXX-XXXX
+Username for 'https://git.gojupiter.tech': JUP-XXX-XXX-XXXX
 Password for 'http://JUP-XXX-XXX-XXXX@localhost:8000':
 Enumerating objects: 379, done.
 Counting objects: 100% (379/379), done.
@@ -15,13 +15,13 @@ Compressing objects: 100% (374/374), done.
 Writing objects: 100% (379/379), 139.07 KiB | 3.31 MiB/s, done.
 Total 379 (delta 240), reused 0 (delta 0)
 remote: Resolving deltas: 100% (240/240), done.
-To http://localhost:8000/JUP-XXX-XXX-XXXX/my-repo
+To https://git.gojupiter.tech/JUP-XXX-XXX-XXXX/my-repo
  * [new branch]      master -> master
 ```
 
 ## Install & Run
 
-The quickest way to run the server is with docker and docker-compose. If you have these installed, you should be able to execute the following in a terminal and get a server running on http://localhost:8000.
+The quickest way to run the server is with docker and docker-compose. If you have these installed, you should be able to execute the following in a terminal and get a server running on https://git.gojupiter.tech.
 
 ```sh
 $ git clone https://github.com/whatl3y/jupiter-git
