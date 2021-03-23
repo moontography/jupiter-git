@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - .:/usr/jupiter-git:cached
+      - /usr/jupiter-git/node_modules
     ports:
       - '8000:8000'
     env_file:
