@@ -24,7 +24,7 @@ To https://git.gojupiter.tech/JUP-XXX-XXX-XXXX/my-repo
 The quickest way to run the server is with docker and docker-compose. If you have these installed, you should be able to execute the following in a terminal and get a server running on https://git.gojupiter.tech.
 
 ```sh
-$ git clone https://github.com/whatl3y/jupiter-git
+$ git clone https://github.com/moontography/jupiter-git
 $ cd jupiter-get
 $ touch .env
 $ docker-compose up

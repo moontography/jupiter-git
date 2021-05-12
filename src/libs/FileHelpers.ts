@@ -80,7 +80,7 @@ export default {
               <div class="notice">
                 You navigated to a Jupiter Git server to store your git repositories in a
                 decentralized way on the Jupiter blockchain. Learn more below or by visiting
-                <a href="https://github.com/whatl3y/jupiter-git">https://github.com/whatl3y/jupiter-git</a>
+                <a href="https://github.com/moontography/jupiter-git">https://github.com/moontography/jupiter-git</a>
               </div>
               ${bodyHtml}
             </div>
